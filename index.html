@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Tierra del Café</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #3e2723;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #bdbdbd;
+        }
+
+        .social-icons {
+            margin: 10px 0;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #bdbdbd;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #795548;
+            border-bottom: 2px solid #795548;
+            padding-bottom: 10px;
+        }
+
+        .producto {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f9fbe7;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .producto img {
+            max-width: 150px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #795548;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5d4037;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #3e2723;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+        }
+
+        label {
+            margin: 10px 0 5px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .gallery img {
+            max-width: 200px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .team-member img {
+            max-width: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        /* Estilos para el carrito de compras */
+        .carrito {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff3e0;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carrito h2 {
+            color: #795548;
+            margin-bottom: 15px;
+        }
+
+        .carrito-item {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .carrito-total {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn-pagar {
+            background-color: #3e2723;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn-pagar:hover {
+            background-color: #5d4037;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>La Tierra del Café</h1>
+        <nav>
+            <ul>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#calidad">Calidad</a></li>
+                <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="#nuestra-planta">Nuestra Planta</a></li>
+                <li><a href="#nuestro-equipo">Nuestro Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#carrito">Carrito</a></li> <!-- Enlace al carrito -->
+            </ul>
+        </nav>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/message/WH3R4QSH5N63I1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </header>
+
+    <section id="productos">
+        <h2>Productos</h2>
+        <div class="producto">
+            <img src="cafe organico.webp" alt="Café Orgánico">
+            <div>
+                <h3>Café Orgánico</h3>
+                <p>Descripción: Café de grano orgánico, cosechado en Juliaca.</p>
+                <p>Precio: S/30.00 por kg</p>
+                <button onclick="agregarAlCarrito('Café Orgánico', 30)">Agregar al Carrito</button>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="gourmet.webp" alt="Café Gourmet">
+            <div>
+                <h3>Café Gourmet</h3>
+                <p>Descripción: Café gourmet seleccionado a mano.</p>
+                <p>Precio: S/50.00 por kg</p>
+                <button onclick="agregarAlCarrito('Café Gourmet', 50)">Agregar al Carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="calidad">
+        <h2>Calidad</h2>
+        <p>Nos aseguramos de que nuestro café sea de la más alta calidad, con procesos de selección rigurosos y prácticas sostenibles.</p>
+    </section>
+
+    <section id="quienes-somos" class="info">
+        <h2>Quiénes Somos</h2>
+        <p>En La Tierra del Café, somos apasionados del café y estamos comprometidos con la producción de granos de la más alta calidad. Nuestra misión es ofrecer un café excepcional que represente la riqueza de nuestra tierra.</p>
+        <div class="gallery">
+            <img src="cafe 1.webp" alt="Café en la plantación">
+            <img src="cafe 2.jpeg" alt="Cosecha de café">
+            <img src="cafe 3.webp" alt="Granos de café">
+        </div>
+    </section>
+
+    <section id="nuestra-planta" class="info">
+        <h2>Nuestra Planta</h2>
+        <p>Nuestra planta de producción está equipada con tecnología de última generación para garantizar que cada grano de café sea procesado con el mayor cuidado y calidad. Nos enfocamos en la sostenibilidad y el respeto por el medio ambiente.</p>
+        <div class="gallery">
+            <img src="fabrica 1.jpeg" alt="Planta de producción">
+            <img src="fabrica 2.jpeg" alt="Máquinas de café">
+            <img src="fabrica 3.webp" alt="Proceso de tostado">
+        </div>
+    </section>
+
+    <section id="nuestro-equipo" class="info">
+        <h2>Nuestro Equipo</h2>
+        <div class="team-member">
+            <img src="chambeador 1.jpeg" alt="Juan Pérez">
+            <div>
+                <strong>Juan Pérez</strong>
+                <p>Director de Producción</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="chambeador 2.jpeg" alt="María López">
+            <div>
+                <strong>María López</strong>
+                <p>Jefa de Calidad</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="chambeador 3.jpeg" alt="Carlos Sánchez">
+            <div>
+                <strong>Carlos Sánchez</strong>
+                <p>Especialista en Marketing</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="carrito" class="carrito">
+        <h2>Carrito de Compras</h2>
+        <div id="carrito-items"></div>
+        <div class="carrito-total" id="carrito-total">Total: S/0.00</div>
+        <button class="btn-pagar" onclick="pagar()">Proceder al Pago</button>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Para realizar pedidos o consultas, contáctanos:</p>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 La Tierra del Café. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        let carrito = [];
+        let total = 0;
+
+        function agregarAlCarrito(producto, precio) {
+            carrito.push({ producto, precio });
+            total += precio;
+            actualizarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const carritoItems = document.getElementById('carrito-items');
+            carritoItems.innerHTML = '';
+            carrito.forEach((item) => {
+                carritoItems.innerHTML += `<div class="carrito-item">
+                    <span>${item.producto}</span>
+                    <span>S/${item.precio}</span>
+                </div>`;
+            });
+            document.getElementById('carrito-total').innerText = `Total: S/${total.toFixed(2)}`;
+        }
+
+        function pagar() {
+            alert('Procediendo al pago...');
+            // Aquí puedes agregar más lógica para el proceso de pago
+        }
+    </script>
+</body>
+</html>
+
